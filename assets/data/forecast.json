@@ -1,0 +1,128 @@
+[
+  {
+    "day": "Пн",
+    "description": "Мінлива хмарність",
+    "condition": "partlyCloudy",
+    "tempC": 18,
+    "feelsLikeC": 16,
+    "humidity": 62,
+    "windMs": 4,
+    "pressureMm": 751,
+    "hourly": [
+      {"time": "09:00", "condition": "sunny", "tempC": 14},
+      {"time": "12:00", "condition": "partlyCloudy", "tempC": 17},
+      {"time": "15:00", "condition": "cloudy", "tempC": 18},
+      {"time": "18:00", "condition": "drizzle", "tempC": 15},
+      {"time": "21:00", "condition": "evening", "tempC": 12},
+      {"time": "00:00", "condition": "night", "tempC": 10}
+    ]
+  },
+  {
+    "day": "Вт",
+    "description": "Сонячно",
+    "condition": "sunny",
+    "tempC": 22,
+    "feelsLikeC": 21,
+    "humidity": 48,
+    "windMs": 3,
+    "pressureMm": 749,
+    "hourly": [
+      {"time": "09:00", "condition": "sunny", "tempC": 17},
+      {"time": "12:00", "condition": "sunny", "tempC": 21},
+      {"time": "15:00", "condition": "sunny", "tempC": 22},
+      {"time": "18:00", "condition": "twilight", "tempC": 19},
+      {"time": "21:00", "condition": "evening", "tempC": 15},
+      {"time": "00:00", "condition": "night", "tempC": 13}
+    ]
+  },
+  {
+    "day": "Ср",
+    "description": "Дощ",
+    "condition": "rain",
+    "tempC": 15,
+    "feelsLikeC": 13,
+    "humidity": 82,
+    "windMs": 6,
+    "pressureMm": 745,
+    "hourly": [
+      {"time": "09:00", "condition": "drizzle", "tempC": 12},
+      {"time": "12:00", "condition": "shower", "tempC": 14},
+      {"time": "15:00", "condition": "drizzle", "tempC": 15},
+      {"time": "18:00", "condition": "thunderstorm", "tempC": 13},
+      {"time": "21:00", "condition": "drizzle", "tempC": 11},
+      {"time": "00:00", "condition": "night", "tempC": 9}
+    ]
+  },
+  {
+    "day": "Чт",
+    "description": "Хмарно",
+    "condition": "cloudy",
+    "tempC": 13,
+    "feelsLikeC": 11,
+    "humidity": 74,
+    "windMs": 5,
+    "pressureMm": 748,
+    "hourly": [
+      {"time": "09:00", "condition": "cloudy", "tempC": 10},
+      {"time": "12:00", "condition": "cloudy", "tempC": 12},
+      {"time": "15:00", "condition": "cloudy", "tempC": 13},
+      {"time": "18:00", "condition": "cloudy", "tempC": 11},
+      {"time": "21:00", "condition": "evening", "tempC": 9},
+      {"time": "00:00", "condition": "night", "tempC": 8}
+    ]
+  },
+  {
+    "day": "Пт",
+    "description": "Мінлива хмарність",
+    "condition": "partlyCloudy",
+    "tempC": 17,
+    "feelsLikeC": 15,
+    "humidity": 60,
+    "windMs": 4,
+    "pressureMm": 750,
+    "hourly": [
+      {"time": "09:00", "condition": "sunny", "tempC": 13},
+      {"time": "12:00", "condition": "partlyCloudy", "tempC": 16},
+      {"time": "15:00", "condition": "cloudy", "tempC": 17},
+      {"time": "18:00", "condition": "twilight", "tempC": 14},
+      {"time": "21:00", "condition": "evening", "tempC": 12},
+      {"time": "00:00", "condition": "night", "tempC": 10}
+    ]
+  },
+  {
+    "day": "Сб",
+    "description": "Ясно",
+    "condition": "sunny",
+    "tempC": 23,
+    "feelsLikeC": 23,
+    "humidity": 45,
+    "windMs": 2,
+    "pressureMm": 752,
+    "hourly": [
+      {"time": "09:00", "condition": "sunny", "tempC": 18},
+      {"time": "12:00", "condition": "sunny", "tempC": 22},
+      {"time": "15:00", "condition": "sunny", "tempC": 23},
+      {"time": "18:00", "condition": "twilight", "tempC": 20},
+      {"time": "21:00", "condition": "evening", "tempC": 16},
+      {"time": "00:00", "condition": "night", "tempC": 14}
+    ]
+  },
+  {
+    "day": "Нд",
+    "description": "Невеликий дощ",
+    "condition": "rain",
+    "tempC": 19,
+    "feelsLikeC": 18,
+    "humidity": 70,
+    "windMs": 3,
+    "pressureMm": 747,
+    "hourly": [
+      {"time": "09:00", "condition": "cloudy", "tempC": 15},
+      {"time": "12:00", "condition": "drizzle", "tempC": 18},
+      {"time": "15:00", "condition": "shower", "tempC": 19},
+      {"time": "18:00", "condition": "drizzle", "tempC": 16},
+      {"time": "21:00", "condition": "evening", "tempC": 13},
+      {"time": "00:00", "condition": "night", "tempC": 11}
+    ]
+  }
+]
