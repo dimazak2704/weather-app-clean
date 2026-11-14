@@ -1,4 +1,5 @@
 {
-  "dataSource": "memory",
+  "dataSource": "json",
+  "forecastAsset": "assets/data/forecast.json",
   "defaultCity": "Вінниця"
 }
