@@ -1,32 +1,64 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-import 'providers/city_notifier.dart';
-import 'providers/weather_notifier.dart';
-import 'screens/home_screen.dart';
+import 'application/use_cases/change_city_use_case.dart';
+import 'application/use_cases/get_current_city_use_case.dart';
+import 'application/use_cases/get_week_forecast_use_case.dart';
+import 'domain/repositories/city_repository.dart';
+import 'domain/repositories/weather_repository.dart';
+import 'infrastructure/config/app_settings.dart';
+import 'infrastructure/repositories/in_memory_city_repository.dart';
+import 'infrastructure/repositories/in_memory_weather_repository.dart';
+import 'infrastructure/repositories/json_weather_repository.dart';
+import 'presentation/screens/home_screen.dart';
+import 'presentation/state/city_notifier.dart';
+import 'presentation/state/weather_notifier.dart';
 
-/// Точка входу застосунку.
-void main() {
-  // Початкові одиниці та день можна передати в адресі
-  // сторінки, наприклад ?unit=f&day=2 (у веб-версії).
-  final params = Uri.base.queryParameters;
-  final bool initialCelsius = params['unit'] != 'f';
-  final int initialDay =
-      int.tryParse(params['day'] ?? '') ?? 0;
+/// Точка входу: тут збираються всі шари застосунку.
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
+  final settings = await AppSettings.load(rootBundle);
+
+  // Infrastructure: конкретне сховище обирається лише тут.
+  final WeatherRepository weatherRepository =
+      switch (settings.dataSource) {
+        'json' => JsonWeatherRepository(
+          rootBundle,
+          settings.forecastAsset,
+        ),
+        'memory' => InMemoryWeatherRepository(),
+        final other => throw FormatException(
+          'Невідоме сховище: $other',
+        ),
+      };
+  final CityRepository cityRepository =
+      InMemoryCityRepository(settings.defaultCity);
+
+  // Application: сховища передаються через конструктор.
+  final getWeekForecast = GetWeekForecastUseCase(
+    weatherRepository,
+  );
+  final getCurrentCity = GetCurrentCityUseCase(
+    cityRepository,
+  );
+  final changeCity = ChangeCityUseCase(cityRepository);
+
+  // Presentation: стан працює лише з use cases.
   runApp(
-    // Провайдери стоять вище за MaterialApp, тому їхній стан
-    // доступний на будь-якому екрані застосунку.
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
           create: (_) => WeatherNotifier(
-            isCelsius: initialCelsius,
-            selectedDay: initialDay,
-          ),
+            getWeekForecast,
+            unit: settings.defaultUnit,
+          )..load(),
         ),
         ChangeNotifierProvider(
-          create: (_) => CityNotifier(),
+          create: (_) =>
+              CityNotifier(getCurrentCity, changeCity)
+                ..load(),
         ),
       ],
       child: const WeatherApp(),
