@@ -1,0 +1,6 @@
+{
+  "dataSource": "json",
+  "forecastAsset": "assets/data/forecast.json",
+  "defaultUnit": "celsius",
+  "defaultCity": "Вінниця"
+}
