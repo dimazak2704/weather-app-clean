@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/city_notifier.dart';
-import '../providers/weather_notifier.dart';
+import '../mappers/condition_icons.dart';
+import '../state/city_notifier.dart';
+import '../state/weather_notifier.dart';
 
 /// Великий банер з градієнтом: місто, день, температура
 /// (у поточних одиницях), іконка. Перша точка, де
@@ -74,7 +75,7 @@ class WeatherBanner extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '${day.day} · ${day.condition}',
+                  '${day.day} · ${day.description}',
                   style: textTheme.titleMedium?.copyWith(
                     color: Colors.white70,
                   ),
@@ -82,7 +83,11 @@ class WeatherBanner extends StatelessWidget {
               ],
             ),
           ),
-          Icon(day.icon, color: Colors.white, size: 96),
+          Icon(
+            iconFor(day.condition),
+            color: Colors.white,
+            size: 96,
+          ),
         ],
       ),
     );

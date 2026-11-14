@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/day_weather.dart';
-import '../providers/weather_notifier.dart';
+import '../state/weather_notifier.dart';
 
 /// Горизонтальний ряд чипів вибору дня (Пн..Нд).
 /// Selector стежить лише за selectedDay, тому перемикання
@@ -12,6 +11,11 @@ class DaySelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dayNames = context
+        .select<WeatherNotifier, List<String>>(
+          (weather) => weather.dayNames,
+        );
+
     return Selector<WeatherNotifier, int>(
       selector: (_, weather) => weather.selectedDay,
       builder: (context, selectedDay, _) {
@@ -19,12 +23,12 @@ class DaySelector extends StatelessWidget {
           height: 44,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: weekForecast.length,
+            itemCount: dayNames.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(right: 8),
                 child: ChoiceChip(
-                  label: Text(weekForecast[index].day),
+                  label: Text(dayNames[index]),
                   selected: index == selectedDay,
                   onSelected: (_) => context
                       .read<WeatherNotifier>()

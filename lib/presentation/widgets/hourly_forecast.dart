@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/weather_notifier.dart';
+import '../mappers/condition_icons.dart';
+import '../state/weather_notifier.dart';
 
 /// Заголовок прогнозу. Selector бере лише назву дня, тому
 /// перемикання °C/°F заголовок не перебудовує.
@@ -41,7 +42,7 @@ class HourlyForecast extends StatelessWidget {
           final h = hours[index];
           return _HourCard(
             time: h.time,
-            icon: h.icon,
+            icon: iconFor(h.condition),
             tempLabel: '${weather.displayTemp(h.tempC)}°',
           );
         },

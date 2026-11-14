@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/weather_notifier.dart';
+import '../state/weather_notifier.dart';
 
 /// Рядок із 4 показників (вологість, вітер, тиск,
 /// відчувається як) по Expanded.

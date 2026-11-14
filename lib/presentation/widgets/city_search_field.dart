@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/city_notifier.dart';
+import '../state/city_notifier.dart';
 
 /// Поле пошуку міста. Контролер тексту — локальний стан
 /// цього віджета, тому він лишається у State.

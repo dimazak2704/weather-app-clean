@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/weather_notifier.dart';
+import '../state/weather_notifier.dart';
 
 /// Кнопка перемикання одиниць. Consumer перебудовує лише її
 /// підпис, а незмінна іконка передається через child.
