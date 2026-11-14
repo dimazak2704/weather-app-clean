@@ -1,4 +1,5 @@
 {
   "dataSource": "memory",
+  "defaultUnit": "celsius",
   "defaultCity": "Вінниця"
 }
